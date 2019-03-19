@@ -6,11 +6,21 @@ import Main from '../Main'
 import './App.module.css'
 
 class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            user: {
+                photoURL: 'https://avatars3.githubusercontent.com/u/12777039',
+                email: 'dgomezc@github.com',
+                onOpenText: false
+            }
+        }
+    }
     render() {
         return (
             <div>
                 <Header />
-                <Main />
+                <Main user={this.state.user}/>
             </div>
         )
     }
