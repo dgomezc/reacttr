@@ -12,6 +12,7 @@ class App extends Component {
             user: {
                 photoURL: 'https://avatars3.githubusercontent.com/u/12777039',
                 email: 'dgomezc@github.com',
+                displayName: "David Gómez",
                 onOpenText: false
             }
         }
