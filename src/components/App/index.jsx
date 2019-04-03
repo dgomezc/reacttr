@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'normalize-css'
 
 import Header from '../Header'
@@ -21,10 +21,9 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div>
-                    <Header />
-                    
-                    <Route exactly pattern='/' render={() => {
+                <Header />
+                <Switch>
+                    <Route exact path='/' render={() => {
                         if(this.state.user) {
                             return (
                                 <Main user={this.state.user}/>
@@ -33,16 +32,15 @@ class App extends Component {
                             // Render <Login />
                         }
                     }} />
-                    
-                    <Route pattern='/profile' render={() => {
+                    <Route path='/profile' render={() => {
                         // Render <Profile />
                     }} />
                     
-                    <Route pattern='/user/:username' render={({ params }) => {
+                    <Route path='/user/:username' render={({ params }) => {
                         // Render <Profile /> pasando params.username
                     }} />
-                </div>
-            </Router>
+                </Switch>
+            </Router>           
         )
     }
 }
