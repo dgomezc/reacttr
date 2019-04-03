@@ -5,21 +5,24 @@ import 'normalize-css'
 import Header from '../Header'
 import Main from '../Main'
 import Profile from '../Profile'
+import Login from '../Login'
 import './App.module.css'
 
 class App extends Component {
     constructor() {
         super()
         this.state = {
-            user: {
-                photoURL: 'https://avatars3.githubusercontent.com/u/12777039',
-                email: 'dgomezc@github.com',
-                displayName: "David Gómez",
-                location: 'Madrid, España',
-                onOpenText: false
-            }
+            user: null
         }
+
+        this.handleOnAuth = this.handleOnAuth.bind(this);
     }
+
+    handleOnAuth()
+    {
+        console.log('Auth');
+    }
+
     render() {
         return (
             <Router>
@@ -31,7 +34,9 @@ class App extends Component {
                                 <Main user={this.state.user}/>
                             )
                         } else {
-                            // Render <Login />
+                            return (
+                        <Login onAuth={this.handleOnAuth} />
+                        )                      
                         }
                     }} />
                     <Route path='/profile' render={() => {
