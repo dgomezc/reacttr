@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import styles from './Login.module.css'
 
 class Login extends Component {
-    constructor () {
-        super()
-    }
-
     render()
      {
         return (

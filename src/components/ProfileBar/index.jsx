@@ -3,17 +3,13 @@ import { Link } from 'react-router-dom'
 import styles from './ProfileBar.module.css'
 
 class ProfileBar extends Component {
-    constructor () {
-        super()
-    }
-
     render()
      {
          return (
             <div className={styles.root}>
                 <Link to='/profile'>
                 <figure>
-                    <img className={styles.avatar} src={this.props.picture} alt=""/>
+                    <img className={styles.avatar} src={this.props.picture} alt="avatar"/>
                 </figure>
                 </Link>
                 <span className={styles.userName}> Hola @{this.props.userName}!</span>

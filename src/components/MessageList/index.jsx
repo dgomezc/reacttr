@@ -4,10 +4,6 @@ import Message from '../Message'
 import styles from './MessageList.module.css'
 
 class MessageList extends Component {
-    constructor (props) {
-        super (props)
-    }
-
     render () {
         return (
             <div className={styles.root}>
