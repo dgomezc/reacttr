@@ -46,11 +46,12 @@ class App extends Component {
                         )
                     }} />
                     
-                    <Route path='/user/:username' render={({ params }) => {
+                    <Route path='/user/:username' render={(props) => {
+                        let username = props.match.params.username
                         return (
                             <Profile 
-                            displayName={params.username}
-                            userName={params.username}
+                            displayName={username}
+                            userName={username}
                         />
                         )
                     }} />
