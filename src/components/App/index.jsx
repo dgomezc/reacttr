@@ -4,6 +4,7 @@ import 'normalize-css'
 
 import Header from '../Header'
 import Main from '../Main'
+import Profile from '../Profile'
 import './App.module.css'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
                 photoURL: 'https://avatars3.githubusercontent.com/u/12777039',
                 email: 'dgomezc@github.com',
                 displayName: "David Gómez",
+                location: 'Madrid, España',
                 onOpenText: false
             }
         }
@@ -33,11 +35,24 @@ class App extends Component {
                         }
                     }} />
                     <Route path='/profile' render={() => {
-                        // Render <Profile />
+                        return (
+                            <Profile 
+                            picture={this.state.user.photoURL}
+                            userName={this.state.user.email.split('@')[0]}
+                            displayName={this.state.user.displayName}
+                            location={this.state.user.location}
+                            emailAddress={this.state.user.email}
+                        />
+                        )
                     }} />
                     
                     <Route path='/user/:username' render={({ params }) => {
-                        // Render <Profile /> pasando params.username
+                        return (
+                            <Profile 
+                            displayName={params.username}
+                            userName={params.username}
+                        />
+                        )
                     }} />
                 </Switch>
             </Router>           
