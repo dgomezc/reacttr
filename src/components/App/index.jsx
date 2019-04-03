@@ -12,7 +12,13 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            user: null
+            user: {
+                photoURL: 'https://avatars3.githubusercontent.com/u/12777039',
+                email: 'dgomezc@github.com',
+                displayName: "David Gómez",
+                location: 'Madrid, España',
+                onOpenText: false
+            }
         }
 
         this.handleOnAuth = this.handleOnAuth.bind(this);
