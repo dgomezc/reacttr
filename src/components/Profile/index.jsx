@@ -1,27 +1,35 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 import styles from './Profile.module.css'
 
-class Profile extends Component {
-    render()
-     {
-        return (
-            <div className={styles.root}>
-                <img className={styles.avatar} src={this.props.picture} alt="avatar" />
-                <span className={styles.name}>{this.props.displayName}</span>
-                <ul className={styles.data}>
-                    <li>
-                        <span  className='fa fa-user'></span> {this.props.userName}
-                    </li>
-                    <li>
-                    <span  className='fa fa-envelope'></span> {this.props.emailAddress}
-                    </li>
-                    <li>
-                    <span  className='fa fa-map-marker'></span> {this.props.location}
-                    </li>
-                </ul>
-            </div>
-         )
-     }
+const propTypes = {
+    picture: PropTypes.string.isRequired,
+    displayName: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+    emailAddress: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired
 }
+
+function Profile( {picture, displayName, userName, emailAddress, location} ) {
+    return (
+        <div className={styles.root}>
+            <img className={styles.avatar} src={picture} alt="avatar" />
+            <span className={styles.name}>{displayName}</span>
+            <ul className={styles.data}>
+                <li>
+                    <span  className='fa fa-user'></span> {userName}
+                </li>
+                <li>
+                <span  className='fa fa-envelope'></span> {emailAddress}
+                </li>
+                <li>
+                <span  className='fa fa-map-marker'></span> {location}
+                </li>
+            </ul>
+        </div>
+     )
+}
+
+Profile.propTypes = propTypes
 
 export default Profile
